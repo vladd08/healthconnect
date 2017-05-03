@@ -25,3 +25,4 @@ C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectAPI\HealthconnectAPI
 C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectAPI\HealthconnectAPI\bin\System.Web.Http.WebHost.xml
 C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectAPI\HealthconnectAPI\obj\Release\HealthconnectAPI.dll
 C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectAPI\HealthconnectAPI\obj\Release\HealthconnectAPI.pdb
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectAPI\HealthconnectAPI\obj\Release\HealthconnectAPI.csprojResolveAssemblyReference.cache
