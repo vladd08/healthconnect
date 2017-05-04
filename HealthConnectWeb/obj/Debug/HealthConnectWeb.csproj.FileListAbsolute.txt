@@ -36,3 +36,6 @@ C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb
 C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Mvc.xml
 C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\obj\Debug\HealthConnectWeb.dll
 C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\obj\Debug\HealthConnectWeb.pdb
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Newtonsoft.Json.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Newtonsoft.Json.xml
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\obj\Debug\HealthConnectWeb.csprojResolveAssemblyReference.cache
