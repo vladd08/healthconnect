@@ -1,0 +1,52 @@
+﻿@model IEnumerable<HealthConnectWeb.Models.Pacient>
+
+<table class="table table-striped" style="border-collapse:collapse;">
+    <tr>
+        <th></th>
+        <th>Cnp</th>
+        <th>Nume</th>
+        <th>Prenume</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr data-toggle="collapse" data-target="#@(d.Nume)" class="accordion-toggle">
+            <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+            <td>@d.Cnp </td>
+            <td>@d.Nume</td>
+            <td>@d.Prenume</td>
+        </tr>
+        <tr>
+            <td colspan="12" class="hiddenRow">
+                <div class="accordian-body collapse" id="@(d.Nume)">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Email</th>
+                            <th>NrTelefon</th>
+                            <th>Varsta</th>
+                            <th>Adresa</th>
+                            <th>Profesie</th>
+                            <th>Loc de munca</th>
+                            <th>  </th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>@d.Email</td>
+                                <td>@d.NrTelefon</td>
+                                <td>@d.Varsta</td>
+                                <td>@d.Localitate @d.Strada Nr. @d.NrStrada</td>
+                                <td>@d.Profesie</td>
+                                <td>@d.LocMunca</td>
+                                <td>
+                                    <a href="#" class="btn btn-default btn-sm">
+                                        <i class="glyphicon glyphicon-cog"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </td>
+        </tr>
+    }
+</table>

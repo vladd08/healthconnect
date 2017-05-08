@@ -105,10 +105,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\ajax-loading.gif" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Global.asax" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -134,13 +140,20 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Views\Home\Login.cshtml" />
     <None Include="Properties\PublishProfiles\HealthConnect - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\HealthConnect - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\HealthConnect - FTP %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\HealthConnect - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\HealthConnect - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\HealthConnect - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\HealthConnect - Web Deploy %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\HealthConnect - Web Deploy.pubxml" />
     <Content Include="Views\Home\Medic.cshtml" />
     <Content Include="Views\Home\LoginError.cshtml" />
     <Content Include="Views\Home\Pacient.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\Home\PacientiTable.cshtml" />
+    <Content Include="Views\Home\AddPacient.cshtml" />
+    <Content Include="Views\Home\AddError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

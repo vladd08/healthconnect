@@ -1,0 +1,69 @@
+﻿@model HealthConnectWeb.Models.Pacient
+    
+    @using (Ajax.BeginForm("AddPacient", "Home", new AjaxOptions { UpdateTargetId="status", OnBegin = "Show()", OnSuccess = "Hide()" }))
+            {
+        <div class="row" id="addForm">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Cnp)
+                    @Html.TextBoxFor(m => m.Cnp, new { @class = "form-control input-sm" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Nume)
+                    @Html.TextBoxFor(m => m.Nume, new { @class = "form-control input-sm" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Prenume)
+                    @Html.TextBoxFor(m => m.Prenume, new { @class = "form-control input-sm" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Username)
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control input-sm" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control input-sm" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Varsta)
+                    @Html.TextBoxFor(m => m.Varsta, new { @class = "form-control input-sm" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Localitate)
+                    @Html.TextBoxFor(m => m.Localitate, new { @class = "form-control input-sm" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Strada)
+                    @Html.TextBoxFor(m => m.Strada, new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.NrStrada)
+                    @Html.TextBoxFor(m => m.NrStrada, new { @class = "form-control input-sm" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-sm" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.NrTelefon)
+                    @Html.TextBoxFor(m => m.NrTelefon, new { @class = "form-control input-sm" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Profesie)
+                    @Html.TextBoxFor(m => m.Profesie, new { @class = "form-control input-sm" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LocMunca)
+                    @Html.TextBoxFor(m => m.LocMunca, new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            <button type="submit" id="addPacientBttn" class="btn btn-success">Add</button>
+            <button type="reset" onclick="HideForm()" class="btn btn-danger">Cancel</button>
+
+            <div id="status"></div>
+        </div>
+    }
+
+

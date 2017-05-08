@@ -1,24 +1,76 @@
 ﻿@{
     ViewBag.Title = "Medic";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+} 
 
 @model HealthConnectWeb.Models.Medic
 
-
-
-
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <h2>Hello, @Model.Nume @Model.Prenume</h2>
-            <h1>Medic</h1>
-        </div>
         <div class="col-md-8">
-            <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
-            </p>
-            @Html.ActionLink("Logout", "Logout", "Home")
+            <h2>Hello, @Model.Nume @Model.Prenume</h2>
+            <div class="row">
+                <div class="col-md-2">
+                    @Ajax.ActionLink("Arata Pacienti", "ShowAllPacients", "Home", new AjaxOptions { UpdateTargetId = "pacientiTable" , OnBegin = "Show()", OnSuccess = "Hide()"}, new { @class = "btn btn-info" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ActionLink("Cauta Pacient", "ShowAllPacients", "Home", new { @class = "btn btn-primary" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ActionLink("Logout", "Logout", "Home", new { @class = "btn btn-primary" })
+                </div>
+            </div>
+            <div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
+                    top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001;
+                    opacity: .8; filter: alpha(opacity=70);display:none">
+                <p style="position: absolute; top: 30%; left: 45%; color: White;">
+                    Loading, please wait...<img src="../../Content/ajax-loading.gif">
+                </p>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <div id="pacientiTable"></div>
+                <div id="pacientTable"></div>
+            </div>
         </div>
+        <h2>Adauga pacient</h2>
+        <div class="col-md-4" id="addPacient">
+        </div>
+        @Ajax.ActionLink("Adauga pacient", "SetPacient", "Home", new AjaxOptions { UpdateTargetId = "addPacient", OnSuccess = "HideButton()" }, new { @class = "btn btn-success", @id = "adauga" })     
     </div>
 </div>
+
+@section CustomScripts
+   {
+    <script type="text/javascript" language="javascript">
+    function Show() {
+        $("#divLoading").show();
+    }
+
+    function Hide() {
+        $("#divLoading").hide();
+    }
+
+    function HideButton() {
+        $("#adauga").hide();
+    }
+
+    function HideForm() {
+        $("#addForm").hide();
+        $("#adauga").show();
+        $("")
+    }
+
+    //function Success() {
+    //    $("#status").append("<panel id='statuscode' class='panel panel-success' style='width: 20px;'>Success</panel>")
+    //}
+
+    //function Fail() {
+    //    $("#status").append("<panel id='statuscode' class='panel panel-alert' style='width: 20px;'>Something went wrong.Please try again.</panel>")
+    //}
+
+    //function HideStatus() {
+    //    $('#statuscode').remove();
+    //}
+
+</script>
+}

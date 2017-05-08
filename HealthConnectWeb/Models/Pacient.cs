@@ -14,6 +14,7 @@ namespace HealthConnectWeb.Models
         public string Password { get; set; }
         public int Varsta { get; set; }
         public string Localitate { get; set; }
+        public bool AddError { get; set; }
         public string Strada { get; set; }
         public int NrStrada { get; set; }
         public string NrTelefon { get; set; }
