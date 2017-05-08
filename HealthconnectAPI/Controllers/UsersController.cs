@@ -69,9 +69,9 @@ namespace HealthconnectAPI.Controllers
             while (reader.Read())
             {
                 pacient = new Pacient();
-                pacient.Id = Convert.ToInt32(reader.GetValue(0));
-                pacient.Nume = reader.GetValue(3).ToString();
-                pacient.Prenume = reader.GetValue(4).ToString();
+                pacient.Cnp = reader.GetValue(0).ToString();
+                pacient.Nume = reader.GetValue(2).ToString();
+                pacient.Prenume = reader.GetValue(3).ToString();
             }
             return pacient;
         }

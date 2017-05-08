@@ -32,7 +32,7 @@ namespace HealthconnectAPI.Controllers
             reader = sqlCmd.ExecuteReader();
 
             Pacient pacient = null;
-            while(reader.Read())
+            while (reader.Read())
             {
                 pacient = new Pacient();
                 pacient.Cnp = reader.GetValue(0).ToString();
@@ -90,7 +90,7 @@ namespace HealthconnectAPI.Controllers
 
         [HttpPost]
         [Route("api/Medic/{IdMedic}")]
-        public async System.Threading.Tasks.Task<HttpStatusCode> AuthenticatePacient([FromBody]Pacient pacient)
+        public async System.Threading.Tasks.Task<HttpStatusCode> AddPacient(int IdMedic,[FromBody]Pacient pacient)
         {
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = connectionString;
@@ -98,8 +98,9 @@ namespace HealthconnectAPI.Controllers
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = System.Data.CommandType.Text;
             sqlCmd.Connection = sqlConnection;
+
             sqlCmd.Parameters.AddWithValue("@Cnp", pacient.Cnp);
-            sqlCmd.Parameters.AddWithValue("@IdMedic", pacient.IdMedic);
+            sqlCmd.Parameters.AddWithValue("@IdMedic", IdMedic);
             sqlCmd.Parameters.AddWithValue("@Nume", pacient.Nume);
             sqlCmd.Parameters.AddWithValue("@Prenume", pacient.Prenume);
             sqlCmd.Parameters.AddWithValue("@Username", pacient.Username);
@@ -112,11 +113,112 @@ namespace HealthconnectAPI.Controllers
             sqlCmd.Parameters.AddWithValue("@Email", pacient.Email);
             sqlCmd.Parameters.AddWithValue("@Profesie", pacient.Profesie);
             sqlCmd.Parameters.AddWithValue("@LocMunca", pacient.LocMunca);
-            sqlCmd.CommandText = "INSERT INTO Pacienti (IdMedic,Cnp,Nume,Prenume,Username,Password,Varsta,Localitate,Strada,NrStrada,NrTelefon,Email,Profesie,LocMunca) VALUES(@IdMedic,@Cnp,@Nume,@Prenume,@Username,@Password,@Varsta,@Localitate,@Strada,@NrStrada,@Telefon,@Email,@Profesie,@LocMunca)";
+            try
+            {
+
+                sqlCmd.CommandText = "INSERT INTO Pacienti (IdMedic,Cnp,Nume,Prenume,Username,Password,Varsta,Localitate,Strada,NrStrada,NrTelefon,Email,Profesie,LocMunca) VALUES(@IdMedic,@Cnp,@Nume,@Prenume,@Username,@Password,@Varsta,@Localitate,@Strada,@NrStrada,@Telefon,@Email,@Profesie,@LocMunca)";
+                sqlCmd.Connection = sqlConnection;
+                sqlConnection.Open();
+                var check = await sqlCmd.ExecuteNonQueryAsync();
+                if (check != 0)
+                {
+                    return HttpStatusCode.Created;
+                }
+                else
+                {
+                    return HttpStatusCode.NoContent;
+                }
+            }
+            catch
+            {
+                return HttpStatusCode.NoContent;
+            }
+           
+        }
+
+        [HttpPut]
+        [Route("api/Pacient/{cnp}")]
+        public async System.Threading.Tasks.Task<HttpStatusCode> UpdatePacient(string cnp, [FromBody]Pacient pacient)
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = connectionString;
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = System.Data.CommandType.Text;
             sqlCmd.Connection = sqlConnection;
+            sqlCmd.Parameters.AddWithValue("@Cnp", cnp);
+            sqlCmd.CommandText = "UPDATE Pacienti SET ";
+
+            if (pacient.Email != null)
+            {
+                sqlCmd.Parameters.AddWithValue("@Email", pacient.Email);
+                sqlCmd.CommandText += " Email = @Email ";
+            }
+
+            if (pacient.IdMedic != 0)
+            {
+                sqlCmd.Parameters.AddWithValue("@IdMedic", pacient.IdMedic);
+                if (pacient.Email != null)
+                {
+                    sqlCmd.CommandText += " , IdMedic = @IdMedic ";
+                }
+                else
+                {
+                    sqlCmd.CommandText += " IdMedic = @IdMedic ";
+                }
+            }
+
+            if (pacient.Varsta != 0)
+            {
+                sqlCmd.Parameters.AddWithValue("@Varsta", pacient.Varsta);
+                if (pacient.IdMedic != 0)
+                {
+                    sqlCmd.CommandText += " , Varsta = @Varsta ";
+                }
+                else
+                {
+                    if (pacient.Email != null)
+                    {
+                        sqlCmd.CommandText += " , Varsta = @Varsta ";
+                    }
+                    else
+                    {
+                        sqlCmd.CommandText += " Varsta = @Varsta ";
+                    }
+                }
+            }
+
+            sqlCmd.CommandText += " WHERE Cnp = @Cnp ";
+
             sqlConnection.Open();
             var check = await sqlCmd.ExecuteNonQueryAsync();
-            if(check != 0)
+            if (check != 0)
+            {
+                return HttpStatusCode.Created;
+            }
+            else
+            {
+                return HttpStatusCode.NotModified;
+            }
+        }
+
+        [HttpDelete]
+        [Route("api/Delete/{IdMedic}/{cnp}")]
+        public async System.Threading.Tasks.Task<HttpStatusCode> DeletePacient(string IdMedic, string cnp)
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = connectionString;
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = System.Data.CommandType.Text;
+            sqlCmd.Connection = sqlConnection;
+            sqlCmd.Parameters.AddWithValue("@Cnp", cnp);
+            sqlCmd.Parameters.AddWithValue("@IdMedic", IdMedic);
+            sqlCmd.CommandText = "DELETE FROM Pacienti WHERE IdMedic = @IdMedic AND Cnp = @Cnp";
+
+            sqlConnection.Open();
+            var check = await sqlCmd.ExecuteNonQueryAsync();
+            if (check != 0)
             {
                 return HttpStatusCode.Created;
             }
