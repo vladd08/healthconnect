@@ -188,6 +188,168 @@ namespace HealthconnectAPI.Controllers
                 }
             }
 
+            if (pacient.NrTelefon != null)
+            {
+                sqlCmd.Parameters.AddWithValue("@NrTelefon", pacient.NrTelefon);
+                if (pacient.Varsta != 0)
+                {
+                    sqlCmd.CommandText += " , NrTelefon = @NrTelefon ";
+                }
+                else
+                {
+                    if (pacient.Email != null)
+                    {
+                        sqlCmd.CommandText += " , NrTelefon = @NrTelefon ";
+                    }
+                    else
+                    {
+                        if(pacient.Varsta != 0 )
+                        {
+                            sqlCmd.CommandText += " , NrTelefon = @NrTelefon ";
+                        }
+                        else
+                        {
+                            sqlCmd.CommandText += " NrTelefon = @NrTelefon ";
+                        }
+                    }
+                }
+
+                if (pacient.Localitate != null)
+                {
+                    sqlCmd.Parameters.AddWithValue("@Localitate", pacient.Localitate);
+                    if (pacient.NrTelefon == null)
+                    {
+                        sqlCmd.CommandText += " , Localitate = @Localitate ";
+                    }
+                    else
+                    {
+                        if (pacient.Email != null)
+                        {
+                            sqlCmd.CommandText += " , Localitate = @Localitate ";
+                        }
+                        else
+                        {
+                            if (pacient.NrTelefon != null)
+                            {
+                                sqlCmd.CommandText += " , Localitate = @Localitate ";
+                            }
+                            else
+                            {
+                                sqlCmd.CommandText += " Localitate = @Localitate ";
+                            }
+                        }
+                    }
+                }
+
+                if (pacient.Strada != null)
+                {
+                    sqlCmd.Parameters.AddWithValue("@Strada", pacient.Strada);
+                    if (pacient.Localitate == null)
+                    {
+                        sqlCmd.CommandText += " , Strada = @Strada ";
+                    }
+                    else
+                    {
+                        if (pacient.Email != null)
+                        {
+                            sqlCmd.CommandText += " , Strada = @Strada ";
+                        }
+                        else
+                        {
+                            if (pacient.Localitate != null)
+                            {
+                                sqlCmd.CommandText += " , Strada = @Strada";
+                            }
+                            else
+                            {
+                                sqlCmd.CommandText += " Strada = @Strada ";
+                            }
+                        }
+                    }
+                }
+
+                if (pacient.NrStrada != 0)
+                {
+                    sqlCmd.Parameters.AddWithValue("@NrStrada", pacient.NrStrada);
+                    if (pacient.Strada == null)
+                    {
+                        sqlCmd.CommandText += " , NrStrada = @NrStrada ";
+                    }
+                    else
+                    {
+                        if (pacient.Email != null)
+                        {
+                            sqlCmd.CommandText += " , NrStrada = @NrStrada ";
+                        }
+                        else
+                        {
+                            if (pacient.Strada != null)
+                            {
+                                sqlCmd.CommandText += " , NrStrada = @NrStrada";
+                            }
+                            else
+                            {
+                                sqlCmd.CommandText += " NrStrada = @NrStrada ";
+                            }
+                        }
+                    }
+                }
+
+                if (pacient.Profesie != null)
+                {
+                    sqlCmd.Parameters.AddWithValue("@Profesie", pacient.Profesie);
+                    if (pacient.Strada == null)
+                    {
+                        sqlCmd.CommandText += " , Profesie = @Profesie ";
+                    }
+                    else
+                    {
+                        if (pacient.Email != null)
+                        {
+                            sqlCmd.CommandText += " , Profesie = @Profesie ";
+                        }
+                        else
+                        {
+                            if (pacient.NrStrada != 0)
+                            {
+                                sqlCmd.CommandText += " , Profesie = @Profesie";
+                            }
+                            else
+                            {
+                                sqlCmd.CommandText += " Profesie = @Profesie ";
+                            }
+                        }
+                    }
+                }
+
+                if (pacient.LocMunca != null)
+                {
+                    sqlCmd.Parameters.AddWithValue("@LocMunca", pacient.LocMunca);
+                    if (pacient.Strada == null)
+                    {
+                        sqlCmd.CommandText += " , LocMunca = @LocMunca ";
+                    }
+                    else
+                    {
+                        if (pacient.Email != null)
+                        {
+                            sqlCmd.CommandText += " , LocMunca = @LocMunca ";
+                        }
+                        else
+                        {
+                            if (pacient.Profesie != null)
+                            {
+                                sqlCmd.CommandText += " , LocMunca = @LocMunca";
+                            }
+                            else
+                            {
+                                sqlCmd.CommandText += " LocMunca = @LocMunca ";
+                            }
+                        }
+                    }
+                }
+            }
+
             sqlCmd.CommandText += " WHERE Cnp = @Cnp ";
 
             sqlConnection.Open();
