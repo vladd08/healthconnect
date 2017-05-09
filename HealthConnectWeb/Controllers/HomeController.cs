@@ -164,6 +164,25 @@ namespace HealthConnectWeb.Controllers
             return PartialView("AddPacient", pacient);
         }
 
+        public PartialViewResult SetEditPacient(string cnp)
+        {
+            List<Pacient> pacienti = new List<Pacient>();
+            Pacient pacient = new Pacient();
+            HttpWebRequest request;
+            request = (HttpWebRequest)WebRequest.Create(@"https://healthconnectapi.azurewebsites.net/api/Medic/" + HttpContext.Request.Cookies["IdMedic"].Value + "/Pacienti");
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            pacienti = JsonConvert.DeserializeObject<List<Pacient>>(content);
+            foreach(Pacient d in pacienti)
+            {
+                if(d.Cnp == cnp)
+                {
+                    pacient = d;
+                }
+            }
+            return PartialView("EditPacient", pacient);
+        }
+
         public PartialViewResult AddPacient(Pacient pacient)
         {
             Pacient mPacient = new Pacient();
@@ -191,6 +210,85 @@ namespace HealthConnectWeb.Controllers
             {
                 pacient.AddError = true;
                 return PartialView("AddError", pacient);
+            }
+        }
+
+        public PartialViewResult DeletePacient(string cnp)
+        {
+            HttpWebRequest request;
+            request = (HttpWebRequest)WebRequest.Create(@"https://healthconnectapi.azurewebsites.net/api/Delete/" + HttpContext.Request.Cookies["IdMedic"].Value + "/" + cnp);
+            request.Method = "DELETE";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+            Pacient pacient = new Pacient();
+            if (content == "201")
+            {
+                pacient.AddError = false;
+                return PartialView("DeleteError", pacient);
+            }
+            else
+            {
+                pacient.AddError = true;
+                return PartialView("DeleteError", pacient);
+            }
+        }
+
+        public PartialViewResult EditPacient(string cnp, Pacient pac)
+        {
+            List<Pacient> pacienti = new List<Pacient>();
+            Pacient mPacient = new Pacient();
+            HttpWebRequest request;
+            request = (HttpWebRequest)WebRequest.Create(@"https://healthconnectapi.azurewebsites.net/api/Medic/" + HttpContext.Request.Cookies["IdMedic"].Value + "/Pacienti");
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            pacienti = JsonConvert.DeserializeObject<List<Pacient>>(content);
+
+            foreach (Pacient p in pacienti)
+            {
+                if(p.Cnp == cnp)
+                {
+                    mPacient = p;
+                }
+            }
+
+            mPacient.Cnp = pac.Cnp;
+            mPacient.Varsta = pac.Varsta;
+            mPacient.IdMedic = pac.IdMedic;
+            mPacient.Email = pac.Email;
+            mPacient.Localitate = pac.Localitate;
+            mPacient.Strada = pac.Strada;
+            mPacient.NrStrada = pac.NrStrada;
+            mPacient.NrTelefon = pac.NrTelefon;
+            mPacient.Profesie = pac.Profesie;
+            mPacient.LocMunca = pac.LocMunca;
+
+            HttpWebRequest mRequest;
+            mRequest = (HttpWebRequest)WebRequest.Create(@"https://healthconnectapi.azurewebsites.net/api/Pacient/" + cnp);
+            mRequest.Method = "PUT";
+            mRequest.ContentType = "application/json";
+            using (var streamWriter = new StreamWriter(mRequest.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(mPacient);
+
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            HttpWebResponse mResponse = (HttpWebResponse)mRequest.GetResponse();
+            string mContent = new StreamReader(mResponse.GetResponseStream()).ReadToEnd();
+
+            Pacient pacient = new Pacient();
+            if (mContent == "201")
+            {
+                pacient.AddError = false;
+                return PartialView("EditError", pacient);
+            }
+            else
+            {
+                pacient.AddError = true;
+                return PartialView("EditError", pacient);
             }
         }
 

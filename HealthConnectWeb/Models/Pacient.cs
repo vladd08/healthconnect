@@ -8,6 +8,7 @@ namespace HealthConnectWeb.Models
     public class Pacient
     {
         public string Cnp { get; set; }
+        public int IdMedic { get; set; }
         public string Nume { get; set; }
         public string Prenume { get; set; }
         public string Username { get; set; }

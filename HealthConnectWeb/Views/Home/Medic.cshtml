@@ -11,7 +11,7 @@
             <h2>Hello, @Model.Nume @Model.Prenume</h2>
             <div class="row">
                 <div class="col-md-2">
-                    @Ajax.ActionLink("Arata Pacienti", "ShowAllPacients", "Home", new AjaxOptions { UpdateTargetId = "pacientiTable" , OnBegin = "Show()", OnSuccess = "Hide()"}, new { @class = "btn btn-info" })
+                    @Ajax.ActionLink("Arata Pacienti", "ShowAllPacients", "Home", new AjaxOptions { UpdateTargetId = "pacientiTable" , OnBegin = "Show()", OnSuccess = "Hide()"}, new { @class = "btn btn-info", id="showButton" })
                 </div>
                 <div class="col-md-2">
                     @Html.ActionLink("Cauta Pacient", "ShowAllPacients", "Home", new { @class = "btn btn-primary" })
@@ -58,6 +58,14 @@
         $("#addForm").hide();
         $("#adauga").show();
         $("")
+    }
+    function HideFormEdit() {
+        $("#editForm").hide();
+        $("#edit").show();
+    }
+
+    function Refresh() {
+        $("#showButton").click();
     }
 
     //function Success() {

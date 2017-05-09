@@ -154,6 +154,9 @@
     <Content Include="Views\Home\PacientiTable.cshtml" />
     <Content Include="Views\Home\AddPacient.cshtml" />
     <Content Include="Views\Home\AddError.cshtml" />
+    <Content Include="Views\Home\DeleteError.cshtml" />
+    <Content Include="Views\Home\EditPacient.cshtml" />
+    <Content Include="Views\Home\EditError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

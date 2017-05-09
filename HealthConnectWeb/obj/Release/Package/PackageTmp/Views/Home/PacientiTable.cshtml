@@ -9,7 +9,7 @@
     </tr>
     @foreach (var d in Model)
     {
-        <tr data-toggle="collapse" data-target="#@(d.Nume)" class="accordion-toggle">
+        <tr data-toggle="collapse" data-target="#@(d.Cnp)" class="accordion-toggle">
             <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
             <td>@d.Cnp </td>
             <td>@d.Nume</td>
@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <td colspan="12" class="hiddenRow">
-                <div class="accordian-body collapse" id="@(d.Nume)">
+                <div class="accordian-body collapse" id="@(d.Cnp)">
                     <table class="table table-striped">
                         <tr>
                             <th>Email</th>
@@ -26,7 +26,7 @@
                             <th>Adresa</th>
                             <th>Profesie</th>
                             <th>Loc de munca</th>
-                            <th>  </th>
+                            <th><a href="#"><i class="glyphicon glyphicon-time"></i></a></th>
                         </tr>
                         <tbody>
                             <tr>
@@ -37,16 +37,35 @@
                                 <td>@d.Profesie</td>
                                 <td>@d.LocMunca</td>
                                 <td>
-                                    <a href="#" class="btn btn-default btn-sm">
+                                    <a data-toggle="dropdown" data-target="#@(d.Cnp)edit" class="btn btn-default btn-sm dropdown-toggle">
                                         <i class="glyphicon glyphicon-cog"></i>
                                     </a>
+                                    <div id="@(d.Cnp)edit" class="dropdown">
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-header">Edit settings</li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                @Ajax.ActionLink("Edit", "SetEditPacient", "Home", new { cnp = @d.Cnp }, new AjaxOptions { UpdateTargetId = "modal" })
+                                            </li>
+                                            <li><a href="#">Adauga Recomandari</a></li>
+                                            <li><a href="#">Editeaza Mod Inteligent</a></li>
+                                            <li><a href="#">Vizualizeaza Rapoarte</a></li>
+                                            <li><a href="#">Vizualizeaza Recomandari</a></li>
+                                            <li>
+                                                @Ajax.ActionLink("Delete", "DeletePacient", "Home", new { cnp = @d.Cnp }, new AjaxOptions { UpdateTargetId = "deleteError", OnBegin = "Show()", OnSuccess = "Hide(); Refresh()" })
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-
                 </div>
             </td>
         </tr>
-    }
+        }
 </table>
+
+<div id="deleteError"></div>
+<div id="modal"></div>
+

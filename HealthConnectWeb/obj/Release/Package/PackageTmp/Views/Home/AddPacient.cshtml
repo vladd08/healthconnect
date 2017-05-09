@@ -1,6 +1,6 @@
 ﻿@model HealthConnectWeb.Models.Pacient
     
-    @using (Ajax.BeginForm("AddPacient", "Home", new AjaxOptions { UpdateTargetId="status", OnBegin = "Show()", OnSuccess = "Hide()" }))
+    @using (Ajax.BeginForm("AddPacient", "Home", new AjaxOptions { UpdateTargetId="status", OnBegin = "Show()", OnSuccess = "Hide(); Refresh()" }))
             {
         <div class="row" id="addForm">
             <div class="col-xs-6">
