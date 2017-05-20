@@ -1,0 +1,51 @@
+﻿@model HealthConnectWeb.Models.Pacient
+
+
+@using (Ajax.BeginForm("EditPacient", "Home", new { cnp = Model.Cnp}, new AjaxOptions { OnBegin = "Show()", OnSuccess = "Hide(); Refresh()" }))
+{
+    <div class="row" style="margin-left:10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color:#5bc0de"; id="editForm">
+        <h3 style="margin:5px">Editeaza info ptr @Model.Nume @Model.Prenume</h3>
+        <div class="col-xs-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.IdMedic)
+                        @Html.TextBoxFor(m => Model.IdMedic, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Varsta)
+                        @Html.TextBoxFor(m => m.Varsta, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Localitate)
+                        @Html.TextBoxFor(m => m.Localitate, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Strada)
+                        @Html.TextBoxFor(m => m.Strada, new { @class = "form-control" })
+                    </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="form-group">
+                @Html.LabelFor(m => m.NrStrada)
+                @Html.TextBoxFor(m => m.NrStrada, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.NrTelefon)
+                @Html.TextBoxFor(m => m.NrTelefon, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Profesie)
+                @Html.TextBoxFor(m => m.Profesie, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.LocMunca)
+                @Html.TextBoxFor(m => m.LocMunca, new { @class = "form-control" })
+            </div>
+        </div>
+        <button type="submit" id="addPacientBttn" class="btn btn-info" style="background-color:mediumslateblue!important ">Editeaza</button>
+        <button type="reset" onclick="HideFormEdit()" class="btn btn-info" style="background-color:mediumslateblue!important ">Anuleaza</button>
+    </div>
+}

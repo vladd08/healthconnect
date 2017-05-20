@@ -1,0 +1,23 @@
+﻿
+@model HealthConnectWeb.Models.Pacient
+
+
+@using (Ajax.BeginForm("AdaugaRecomandare", "Home", new { cnp = Model.Cnp}, new AjaxOptions { UpdateTargetId="error", OnBegin = "Show()", OnSuccess = "Hide(); Refresh()" }))
+{
+    <div class="row" style="margin-left:10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color:#5bc0de" id="editForm">
+        <h3 style="margin-left:5px">Adauga recomandare pentru @Model.Nume @Model.Prenume</h3>
+        <div class="col-xs-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.recomandare.Mesaj)
+                        @Html.TextBoxFor(m => m.recomandare.Mesaj, new { @class = "form-control input-sm" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.recomandare.TipActivitate)
+                        @Html.TextBoxFor(m => m.recomandare.TipActivitate, new { @class = "form-control input-sm" })
+                    </div>
+        </div>
+        <button type="submit" id="addPacientBttn" class="btn btn-info" style="background-color:mediumslateblue!important ">Adauga</button>
+        <button type="reset" onclick="HideFormEdit()" class="btn btn-info" style="background-color:mediumslateblue!important ">Anuleaza</button>
+        <div id="error"></div>
+    </div>
+}

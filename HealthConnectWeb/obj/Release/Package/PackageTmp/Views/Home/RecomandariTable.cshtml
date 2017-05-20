@@ -1,0 +1,25 @@
+﻿@model IEnumerable<HealthConnectWeb.Models.Recomandare>
+
+@if (Model.ToList().Count != 0)
+{
+    <h3>Recomandari</h3>
+    <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color:#5bc0de">
+       <table class="table table-striped" style="border-collapse:collapse;">
+        <tr style="background-color:darkslateblue; border:0px!important;">
+            <th>Tip Activitate</th>
+            <th>Mesaj</th>
+        </tr>
+            @foreach (var d in Model)
+            {
+                <tr style="background-color:darkslateblue; border:0px!important;" data-toggle="collapse" data-target="#@(d.Cnp)" class="accordion-toggle">
+                    <td>@d.TipActivitate </td>
+                    <td>@d.Mesaj</td>
+                </tr>
+            }
+       </table>
+      </div>
+}
+else
+{
+    <div class="panel panel-danger" style="width:550px; color:black;"><h3>Acest pacient nu are recomandari! Incercati sa adaugati o recomandare.</h3></div>
+}

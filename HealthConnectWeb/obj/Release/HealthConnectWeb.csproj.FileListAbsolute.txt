@@ -1,0 +1,82 @@
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\csc.exe
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\vbc.exe
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\VBCSCompiler.exe
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\HealthConnectWeb.dll.config
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\HealthConnectWeb.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\HealthConnectWeb.pdb
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Microsoft.Owin.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Microsoft.Owin.Security.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Helpers.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Mvc.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Razor.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Webpages.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Webpages.Razor.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Microsoft.Owin.xml
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Microsoft.Owin.Security.xml
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Razor.xml
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Webpages.xml
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Webpages.Razor.xml
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Helpers.xml
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\System.Web.Mvc.xml
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\obj\Release\HealthConnectWeb.csprojResolveAssemblyReference.cache
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\obj\Release\HealthConnectWeb.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\obj\Release\HealthConnectWeb.pdb
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Newtonsoft.Json.dll
+C:\Users\Vlad Orbulescu\Documents\Facultate\IP\HealthconnectWeb\HealthConnectWeb\bin\Newtonsoft.Json.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\csc.exe
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\vbc.exe
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\VBCSCompiler.exe
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\HealthConnectWeb.dll.config
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\HealthConnectWeb.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\HealthConnectWeb.pdb
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\Microsoft.Owin.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\Microsoft.Owin.Security.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\Newtonsoft.Json.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Helpers.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Mvc.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Razor.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Webpages.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Webpages.Razor.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\Microsoft.Owin.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\Microsoft.Owin.Security.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\Newtonsoft.Json.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Razor.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Webpages.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Webpages.Razor.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Helpers.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\bin\System.Web.Mvc.xml
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\obj\Release\HealthConnectWeb.csprojResolveAssemblyReference.cache
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\obj\Release\HealthConnectWeb.dll
+C:\Users\Blue Couch Digital\Documents\Vlad Temp\Facultate\IP\web repo\healthconnect\HealthConnectWeb\obj\Release\HealthConnectWeb.pdb

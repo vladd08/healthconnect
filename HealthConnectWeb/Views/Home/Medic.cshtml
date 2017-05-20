@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Medic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+
+@model HealthConnectWeb.Models.Medic
+
+<div class="container" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);color:floralwhite">
+    <div class="row" style="background-color: mediumslateblue">
+        <div class="col-md-12">
+            <h2>Hello, @Model.Nume @Model.Prenume</h2>
+            <div class="row" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color:darkslateblue">
+                <div class="col-md-2" >
+                    @Ajax.ActionLink("Arata Pacienti", "ShowAllPacients", "Home", new AjaxOptions { UpdateTargetId = "pacientiTable" , OnBegin = "Show()", OnSuccess = "Hide()"}, new { @class = "btn btn-info", id="showButton" })
+                </div>
+                <div class="col-md-4" id="search">
+                    @Ajax.ActionLink("Cauta Pacient", "SetShowPacient", "Home", new AjaxOptions { UpdateTargetId = "search", OnBegin="SearchForm()" }, new { @class = "btn btn-info", id="searchbttn" })
+                        
+                </div>
+                <div class="col-md-2">
+                    @Ajax.ActionLink("Adauga pacient", "SetPacient", "Home", new AjaxOptions { UpdateTargetId = "addPacient"}, new { @class = "btn btn-info", @id = "adauga" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ActionLink("Logout", "Logout", "Home", new { @class = "btn btn-info" })
+                </div>
+            </div>
+            <div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
+                    top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001;
+                    opacity: .8; filter: alpha(opacity=70);display:none">
+                <p style="position: absolute; top: 30%; left: 45%; color: White;">
+                    Loading, please wait...<img src="../../Content/ajax-loading.gif">
+                </p>
+            </div>
+            <div class="row" style="margin-top:10px; margin-left:50px;">
+                <div id="pacientiTable"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background-color: mediumslateblue">
+        <div class="col-md-6">
+            <div id="addPacient">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="modal"></div>
+            <div id="pacientTable"></div>
+        </div>
+    </div>
+</div>
+
+@section CustomScripts
+   {
+    <script type="text/javascript" language="javascript">
+    function Show() {
+        $("#divLoading").show();
+    }
+
+    function Hide() {
+        $("#divLoading").hide();
+    }
+
+    function HideButton() {
+        $("#adauga").hide();
+    }
+
+    function HideForm() {
+        $("#addForm").hide();
+        $("#adauga").show();
+        $("")
+    }
+    function HideFormEdit() {
+        $("#editForm").hide();
+        $("#edit").show();
+    }
+
+    function Refresh() {
+        $("#showButton").click();
+    }
+
+    function SearchForm() {
+        $("#searchbttn").hide();
+    }
+
+</script>
+}
