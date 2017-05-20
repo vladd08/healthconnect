@@ -1,71 +1,81 @@
 ﻿@model IEnumerable<HealthConnectWeb.Models.Pacient>
 
-<table class="table table-striped" style="border-collapse:collapse;">
-    <tr>
-        <th></th>
-        <th>Cnp</th>
-        <th>Nume</th>
-        <th>Prenume</th>
-    </tr>
-    @foreach (var d in Model)
+    @if (Model.ToList().Count != 0)
     {
-        <tr data-toggle="collapse" data-target="#@(d.Cnp)" class="accordion-toggle">
-            <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
-            <td>@d.Cnp </td>
-            <td>@d.Nume</td>
-            <td>@d.Prenume</td>
-        </tr>
-        <tr>
-            <td colspan="12" class="hiddenRow">
-                <div class="accordian-body collapse" id="@(d.Cnp)">
-                    <table class="table table-striped">
-                        <tr>
-                            <th>Email</th>
-                            <th>NrTelefon</th>
-                            <th>Varsta</th>
-                            <th>Adresa</th>
-                            <th>Profesie</th>
-                            <th>Loc de munca</th>
-                            <th><a href="#"><i class="glyphicon glyphicon-time"></i></a></th>
-                        </tr>
-                        <tbody>
-                            <tr>
-                                <td>@d.Email</td>
-                                <td>@d.NrTelefon</td>
-                                <td>@d.Varsta</td>
-                                <td>@d.Localitate @d.Strada Nr. @d.NrStrada</td>
-                                <td>@d.Profesie</td>
-                                <td>@d.LocMunca</td>
-                                <td>
-                                    <a data-toggle="dropdown" data-target="#@(d.Cnp)edit" class="btn btn-default btn-sm dropdown-toggle">
-                                        <i class="glyphicon glyphicon-cog"></i>
-                                    </a>
-                                    <div id="@(d.Cnp)edit" class="dropdown">
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-header">Edit settings</li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                @Ajax.ActionLink("Edit", "SetEditPacient", "Home", new { cnp = @d.Cnp }, new AjaxOptions { UpdateTargetId = "modal" })
-                                            </li>
-                                            <li><a href="#">Adauga Recomandari</a></li>
-                                            <li><a href="#">Editeaza Mod Inteligent</a></li>
-                                            <li><a href="#">Vizualizeaza Rapoarte</a></li>
-                                            <li><a href="#">Vizualizeaza Recomandari</a></li>
-                                            <li>
-                                                @Ajax.ActionLink("Delete", "DeletePacient", "Home", new { cnp = @d.Cnp }, new AjaxOptions { UpdateTargetId = "deleteError", OnBegin = "Show()", OnSuccess = "Hide(); Refresh()" })
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </td>
-        </tr>
-        }
-</table>
+            <table class="table table-striped" style="border-collapse:collapse;">
+                <tr style="background-color:darkslateblue; border:0px!important;">
+                    <th></th>
+                    <th>Cnp</th>
+                    <th>Nume</th>
+                    <th>Prenume</th>
+                </tr>
+                @foreach (var d in Model)
+                {
+                    <tr data-toggle="collapse" data-target="#@(d.Cnp)" class="accordion-toggle">
+                        <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+                        <td>@d.Cnp </td>
+                        <td>@d.Nume</td>
+                        <td>@d.Prenume</td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="hiddenRow" style="background-color:mediumslateblue; border:0px;">
+                            <div class="accordian-body collapse" id="@(d.Cnp)">
+                                <table class="table table-striped">
+                                    <tr style="background-color:darkslateblue">
+                                        <th>Email</th>
+                                        <th>NrTelefon</th>
+                                        <th>Varsta</th>
+                                        <th>Adresa</th>
+                                        <th>Profesie</th>
+                                        <th>Loc de munca</th>
+                                        <th><a href="#"><i class="glyphicon glyphicon-time"></i></a></th>
+                                    </tr>
+                                    <tbody>
+                                        <tr style="background-color:mediumslateblue; border:0px;">
+                                            <td>@d.Email</td>
+                                            <td>@d.NrTelefon</td>
+                                            <td>@d.Varsta</td>
+                                            <td>@d.Localitate @d.Strada Nr. @d.NrStrada</td>
+                                            <td>@d.Profesie</td>
+                                            <td>@d.LocMunca</td>
+                                            <td>
+                                                <a data-toggle="dropdown" data-target="#@(d.Cnp)edit" class="btn btn-default btn-sm dropdown-toggle">
+                                                    <i class="glyphicon glyphicon-cog"></i>
+                                                </a>
+                                                <div id="@(d.Cnp)edit" class="dropdown">
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown-header">Edit settings</li>
+                                                        <li class="divider"></li>
+                                                        <li>
+                                                            @Ajax.ActionLink("Edit", "SetEditPacient", "Home", new { cnp = @d.Cnp }, new AjaxOptions { UpdateTargetId = "modal" })
+                                                        </li>
+                                                        <li>
+                                                            @Ajax.ActionLink("Adauga recomandare","SetAddRecomandare", "Home", new { cnp = @d.Cnp}, new AjaxOptions { UpdateTargetId="modal"})
+                                                        </li>
+                                                        <li><a href="#">Editeaza Mod Inteligent</a></li>
+                                                        <li><a href="#">Vizualizeaza Rapoarte</a></li>
+                                                        <li>
+                                                            @Ajax.ActionLink("Vizualizeaza Recomandari", "VizualizeazaRecomandari", "Home", new { cnp = @d.Cnp }, new AjaxOptions { UpdateTargetId = "modal", OnBegin="Show()", OnSuccess="Hide()" })
+                                                        </li>
+                                                        <li>
+                                                            @Ajax.ActionLink("Delete", "DeletePacient", "Home", new { cnp = @d.Cnp }, new AjaxOptions { UpdateTargetId = "deleteError", OnBegin = "Show()", OnSuccess = "Hide(); Refresh()" })
+                                                        </li>
+                                                    </ul>
+                                                  </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </table>
+    }
+    else
+    {
+        <div class="panel panel-danger" style="width:550px; background-color:mediumslateblue"><h3>Acest doctor nu are pacienti (sau pacientul cautat)! Incercati sa adaugati unul.</h3></div>
+    }
 
 <div id="deleteError"></div>
-<div id="modal"></div>
 

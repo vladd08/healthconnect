@@ -1,0 +1,13 @@
+﻿@model HealthConnectWeb.Models.Pacient
+
+@using (Ajax.BeginForm("ShowPacient", "Home", new AjaxOptions { UpdateTargetId="pacientiTable", OnBegin="Show()", OnSuccess="Hide()"  }))
+{
+    <div class="row">
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.Cnp, new { @class = "form-control input-sm", style="margin-top:1px" })
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-info" type="submit">Cauta</button>
+        </div>
+    </div>
+}

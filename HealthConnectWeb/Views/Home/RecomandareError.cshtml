@@ -1,13 +1,12 @@
-﻿@model HealthConnectWeb.Models.Pacient
+﻿@model String
 
-@if (!Model.AddError)
+@if (Model == "Succes")
 {
     <panel class="panel panel-success" style="width: 20px; color:black">Success!</panel>
 }
 
-@if (Model.AddError)
+@if (Model == "Failed")
 {
     <panel class="panel panel-danger" style="width: 20px; color:black">Ceva nu a mers bine. Incercati din nou!</panel>
 }
-
 

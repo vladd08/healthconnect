@@ -5,14 +5,12 @@ using System.Web;
 
 namespace HealthConnectWeb.Models
 {
-    public class Pacient
+    public class Pacient : User
     {
         public string Cnp { get; set; }
         public int IdMedic { get; set; }
         public string Nume { get; set; }
         public string Prenume { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
         public int Varsta { get; set; }
         public string Localitate { get; set; }
         public bool AddError { get; set; }
@@ -22,6 +20,8 @@ namespace HealthConnectWeb.Models
         public string Email { get; set; }
         public string Profesie { get; set; }
         public string LocMunca { get; set; }
+        public string NoPacientError { get; set; }
+        public Recomandare recomandare { get; set; }
 
     }
 }

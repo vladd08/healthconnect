@@ -4,25 +4,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  background-image: url(../../Content/loginbg2.jpg); margin: 0; background-repeat:no-repeat; background-size:cover;">
         <div class="row">
-            <div class="col-md-6">
-                <h1>Softmed</h1>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.</p>
-                <button class="btn btn-info">Read more</button>
+            <div class="col-md-5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color:lightblue; border:1px solid lightblue; border-radius:20px;">
+                <h1 style="font-family: Candara">Softmed</h1>
+                <p style="font-weight:300; font-family: Calibri">Auzim foarte multe intamplari nefericite in jurul nostru, precum oameni ce depisteaza boli grave intr-un stadiu prea avansat, fara a avea simptome in acest sens si fara a stii cum sa aiba un stil de viata sanatos, benefic fiecaruia.
+                 Astfel noi, SOFTMED, din pasiunea pentru programare, dar si pentru a incuraja un stil de viata sanatos, am decis sa cream un sistem ce consta intr-un dispozitiv purtabil pentru supravegherea starii de sanatate a pacientilor in timp real. </p>
+                
             </div>
-            <div class="col-md-6">
-                <h1>Healthconnect</h1>
-                <p>Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
+            <div class="col-md-1"></div>
+            <div class="col-md-5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color:lightsteelblue; border:1px solid lightsteelblue; border-radius:20px;">
+                <h1 style="font-family: Candara">Healthconnect</h1>
+                <p style="font-weight:300;font-family: Calibri">Pentru a utiliza aplicatia noastra contactati un administrator pentru a va creea un cont. Daca aveti deja un cont, apasati pe LOGIN.</p>
                 @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
-                    <button class="btn btn-success">Login</button>
+                    <button style="margin-bottom: 15px; background-color: #343a42!important; border: 1px solid #d7e1ee" class="btn btn-success">Login</button>
                 }
             </div>
         </div>
     </div>
 </div>
-
+<footer style="text-align: center">
+    <p style="margin-top:10px; font-weight:200; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Copyright ©Softmed - Healthconnect 2017</p>
+</footer>

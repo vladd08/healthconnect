@@ -5,19 +5,23 @@
 
 @model HealthConnectWeb.Models.Medic
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
+<div class="container" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);color:floralwhite">
+    <div class="row" style="background-color: mediumslateblue">
+        <div class="col-md-12">
             <h2>Hello, @Model.Nume @Model.Prenume</h2>
-            <div class="row">
-                <div class="col-md-2">
+            <div class="row" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color:darkslateblue">
+                <div class="col-md-2" >
                     @Ajax.ActionLink("Arata Pacienti", "ShowAllPacients", "Home", new AjaxOptions { UpdateTargetId = "pacientiTable" , OnBegin = "Show()", OnSuccess = "Hide()"}, new { @class = "btn btn-info", id="showButton" })
                 </div>
-                <div class="col-md-2">
-                    @Html.ActionLink("Cauta Pacient", "ShowAllPacients", "Home", new { @class = "btn btn-primary" })
+                <div class="col-md-4" id="search">
+                    @Ajax.ActionLink("Cauta Pacient", "SetShowPacient", "Home", new AjaxOptions { UpdateTargetId = "search", OnBegin="SearchForm()" }, new { @class = "btn btn-info", id="searchbttn" })
+                        
                 </div>
                 <div class="col-md-2">
-                    @Html.ActionLink("Logout", "Logout", "Home", new { @class = "btn btn-primary" })
+                    @Ajax.ActionLink("Adauga pacient", "SetPacient", "Home", new AjaxOptions { UpdateTargetId = "addPacient"}, new { @class = "btn btn-info", @id = "adauga" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ActionLink("Logout", "Logout", "Home", new { @class = "btn btn-info" })
                 </div>
             </div>
             <div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
@@ -27,15 +31,20 @@
                     Loading, please wait...<img src="../../Content/ajax-loading.gif">
                 </p>
             </div>
-            <div class="row" style="margin-top:10px">
+            <div class="row" style="margin-top:10px; margin-left:50px;">
                 <div id="pacientiTable"></div>
-                <div id="pacientTable"></div>
             </div>
         </div>
-        <h2>Adauga pacient</h2>
-        <div class="col-md-4" id="addPacient">
+    </div>
+    <div class="row" style="background-color: mediumslateblue">
+        <div class="col-md-6">
+            <div id="addPacient">
+            </div>
         </div>
-        @Ajax.ActionLink("Adauga pacient", "SetPacient", "Home", new AjaxOptions { UpdateTargetId = "addPacient", OnSuccess = "HideButton()" }, new { @class = "btn btn-success", @id = "adauga" })     
+        <div class="col-md-6">
+            <div id="modal"></div>
+            <div id="pacientTable"></div>
+        </div>
     </div>
 </div>
 
@@ -68,17 +77,9 @@
         $("#showButton").click();
     }
 
-    //function Success() {
-    //    $("#status").append("<panel id='statuscode' class='panel panel-success' style='width: 20px;'>Success</panel>")
-    //}
-
-    //function Fail() {
-    //    $("#status").append("<panel id='statuscode' class='panel panel-alert' style='width: 20px;'>Something went wrong.Please try again.</panel>")
-    //}
-
-    //function HideStatus() {
-    //    $('#statuscode').remove();
-    //}
+    function SearchForm() {
+        $("#searchbttn").hide();
+    }
 
 </script>
 }

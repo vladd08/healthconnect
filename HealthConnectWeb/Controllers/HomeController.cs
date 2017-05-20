@@ -164,6 +164,34 @@ namespace HealthConnectWeb.Controllers
             return PartialView("AddPacient", pacient);
         }
 
+        public PartialViewResult SetShowPacient()
+        {
+            Pacient pacient = new Pacient();
+            return PartialView("SetSearch", pacient);
+        }
+
+        public PartialViewResult ShowPacient(string cnp)
+        {
+            if(cnp == "")
+            {
+                return PartialView("RecomandareError", "Failed");
+            } else
+            {
+                List<Pacient> listaPacienti = new List<Pacient>();
+                Pacient pacient = new Pacient();
+                HttpWebRequest request;
+                request = (HttpWebRequest)WebRequest.Create(@"https://healthconnectapi.azurewebsites.net/api/Medic/" + HttpContext.Request.Cookies["IdMedic"].Value + "/Pacient/" + cnp);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                if(content != "null")
+                {
+                    pacient = JsonConvert.DeserializeObject<Pacient>(content);
+                    listaPacienti.Add(pacient);
+                }
+                return PartialView("PacientiTable", listaPacienti);
+            }
+        }
+
         public PartialViewResult SetEditPacient(string cnp)
         {
             List<Pacient> pacienti = new List<Pacient>();
@@ -181,6 +209,25 @@ namespace HealthConnectWeb.Controllers
                 }
             }
             return PartialView("EditPacient", pacient);
+        }
+
+        public PartialViewResult SetAddRecomandare(string cnp)
+        {
+            List<Pacient> pacienti = new List<Pacient>();
+            Pacient pacient = new Pacient();
+            HttpWebRequest request;
+            request = (HttpWebRequest)WebRequest.Create(@"https://healthconnectapi.azurewebsites.net/api/Medic/" + HttpContext.Request.Cookies["IdMedic"].Value + "/Pacienti");
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            pacienti = JsonConvert.DeserializeObject<List<Pacient>>(content);
+            foreach (Pacient d in pacienti)
+            {
+                if (d.Cnp == cnp)
+                {
+                    pacient = d;
+                }
+            }
+            return PartialView("Recomandare", pacient);
         }
 
         public PartialViewResult AddPacient(Pacient pacient)
@@ -290,6 +337,79 @@ namespace HealthConnectWeb.Controllers
                 pacient.AddError = true;
                 return PartialView("EditError", pacient);
             }
+        }
+
+        public PartialViewResult AddMedic(Medic medic)
+        {
+            Medic mMedic = new Medic();
+            mMedic = medic;
+            HttpWebRequest request;
+            request = (HttpWebRequest)WebRequest.Create(@"https://healthconnectapi.azurewebsites.net/api/Medici/Medic");
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(mMedic);
+
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            if (content == "201")
+            {
+                medic.AddError = false;
+                return PartialView("AddMedicError", medic);
+            }
+            else
+            {
+                medic.AddError = true;
+                return PartialView("AddMedicError", medic);
+            }
+        }
+
+        public PartialViewResult AdaugaRecomandare(string cnp, Recomandare recomandare)
+        {
+            if(recomandare.TipActivitate == null || recomandare.Mesaj == null)
+            {
+                return PartialView("RecomandareError", "Failed");
+            } else
+            {
+                Recomandare rm = recomandare;
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://healthconnectapi.azurewebsites.net/api/Recomandare/" + cnp);
+                request.Method = "POST";
+                request.ContentType = "application/json";
+                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+                {
+                    string json = JsonConvert.SerializeObject(rm);
+
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                    streamWriter.Close();
+                }
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                if (content == "201")
+                {
+                    return PartialView("RecomandareError", "Succes");
+                }
+                else
+                {
+                    return PartialView("RecomandareError", "Failed");
+                }
+            }
+        }
+
+        public PartialViewResult VizualizeazaRecomandari(string cnp)
+        {
+            List<Recomandare> listaRecomandari = new List<Recomandare>();
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://healthconnectapi.azurewebsites.net/api/Recomandare/" + cnp);
+            request.Method = "GET";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            listaRecomandari = JsonConvert.DeserializeObject<List<Recomandare>>(content);
+            return PartialView("RecomandariTable", listaRecomandari);
         }
 
         private string Encrypt(string source)
